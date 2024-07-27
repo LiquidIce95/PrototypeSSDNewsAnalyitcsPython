@@ -39,7 +39,7 @@ def create_user():
     db.session.add(new_user)
     db.session.commit()
     userId = new_user.id
-    return jsonify({'message': 'User created successfully', 'userId': userId}), 201
+    return jsonify({'id': userId,'name':new_user.name,'username':new_user.username}), 201
 
 # REST controller to delete a user by userID
 @app.route('/users/<int:user_id>', methods=['DELETE'])
